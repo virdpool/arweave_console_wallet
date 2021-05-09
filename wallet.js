@@ -1,4 +1,21 @@
 #!/usr/bin/env node
+String.prototype.rjust = function(length, char) {
+  var append;
+  if (char == null) {
+    char = " ";
+  }
+  append = new Array(Math.max(0, length - this.length) + 1).join(char);
+  append = append.substr(0, length - this.length);
+  return append + this;
+};
+Number.prototype.rjust = function(length, char) {
+  if (char == null) {
+    char = " ";
+  }
+  return this.toString().rjust(length, char);
+};
+
+
 (async function() {
   var fs = require("fs");
   var Arweave = require("arweave");
@@ -100,6 +117,21 @@
         quantity: arweave.ar.arToWinston(amount)
       }, key);
       await arweave.transactions.sign(transaction, key);
+      var balance = await arweave.wallets.getBalance(address);
+      var balance_bn = BigInt(balance);
+      var spend_bn = BigInt(transaction.quantity) + BigInt(transaction.reward);
+      if (balance_bn < spend_bn) {
+        console.error("can't transfer more than you have");
+        console.error("balance : "+arweave.ar.winstonToAr(balance).rjust(30));
+        console.error("");
+        console.error("send    : "+arweave.ar.winstonToAr(+transaction.quantity).rjust(30));
+        console.error("fee     : "+arweave.ar.winstonToAr(+transaction.reward).rjust(30));
+        console.error("total   : "+arweave.ar.winstonToAr(+spend_bn.toString()).rjust(30));
+        console.error("");
+        console.error("deficit : "+arweave.ar.winstonToAr(+(balance_bn - spend_bn).toString()).rjust(30));
+        process.exit(1);
+      }
+      
       var response = await arweave.transactions.post(transaction);
       if (response.status == 200) {
         console.log("done");
