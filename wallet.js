@@ -44,10 +44,12 @@ Number.prototype.rjust = function(length, char) {
         }
       }
     } else {
-      if (!network_host) network_host = "arweave.net"
-      if (!network_port) network_port = 80;
-      if (!network_protocol) network_protocol = "https";
       // mainnet
+      if (!network_host) {
+        network_host = "arweave.net"
+        network_port = 443;
+        network_protocol = "https";
+      }
     }
     arweave = new Arweave({
       host    : network_host,
@@ -141,6 +143,11 @@ Number.prototype.rjust = function(length, char) {
       process.exit();
       break;
     
+    case "page":
+      join();
+      require("./page")(argv, arweave);
+      break;
+
     default:
       console.log("usage");
       console.log("  ./wallet.js <command>");
@@ -154,6 +161,9 @@ Number.prototype.rjust = function(length, char) {
       console.log("   ./wallet.js --network arweave.virdpool_testnet gen");
       console.log("   ./wallet.js --network arweave.virdpool_testnet balance");
       console.log("   ./wallet.js --network arweave.virdpool_testnet send <address> <amount>");
+      console.log("   ./wallet.js page init");
+      console.log("   ./wallet.js page router_publish");
+      console.log("   ./wallet.js page version_publish");
       console.log("");
       console.log("NOTE. No password protection of wallet. This is only for demo purposes for arweave.virdpool_testnet");
       break;

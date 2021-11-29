@@ -1,0 +1,215 @@
+<!doctype html>
+<html>
+  <head>
+    <title>%%title%%</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+      html {
+        height:100%;
+      }
+      body {
+        background-color: #f0f0f2;
+        margin:0;
+        padding:0;
+        height:100%;
+        overflow: hidden;
+      }
+      #header {
+        display: flex;
+        background-color: #232323;
+        color: #eee;
+        padding: 10px;
+        font-family: Verdana,sans-serif;
+        align-items: center;
+      }
+      .push {
+        margin-left: auto;
+      }
+      #content {
+        width : 100%;
+        height : 100%;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="header">
+      <img
+        src="data:image/png;base64,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"
+        width=30
+        height=30
+      />
+      &nbsp;
+      <span>%%title%%</span>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      <span>Gateway:</span>
+      <select id="gateway_list"></select>
+      &nbsp;
+      <span>Router:</span>
+      <select id="router_version_list"></select>
+      <div class="push"></div>
+      &nbsp;
+      <span>Version:</span>
+      <select id="version_list"></select>
+      <button id="open_in_new_tab">Open in new tab</button>
+    </div>
+    <iframe id="content"></iframe>
+    <script>
+      var wallet = %%wallet%%;
+      document.getElementById("content").src = "data:text/html;charset=utf-8;,version list is loading...";
+      // TODO remember all versions in localStorage
+      // TODO last version in localStorage
+      function gateway_list_refresh() {
+        var arweave_gateway_list = [
+          "https://arweave.net",
+          "http://localhost:1984",
+        ];
+        document.getElementById("gateway_list").innerHTML = arweave_gateway_list.map((t)=>{
+          return `<option>${t}</option>`
+        });
+        for(var i=0;i<arweave_gateway_list.length;i++) {
+          var gateway = arweave_gateway_list[i];
+          if (location.href.startsWith(gateway)) {
+            document.getElementById("gateway_list").value = gateway;
+            break;
+          }
+        }
+        // TODO add current gateway if missing
+      }
+      
+      function base64url_decode(t) {
+        return atob(t.replace(/-/g,"+").replace(/_/g,"/"))
+      }
+      
+      async function version_list_refresh() {
+        var gateway = document.getElementById("gateway_list").value;
+        // TODO select arweave_node different from gateway
+        var arweave_node = gateway;
+        
+        // 1 request for all stuff pages, routers
+        var req_tx_list = await fetch(`${arweave_node}/arql`, {
+          method: "POST",
+          body  : JSON.stringify({
+            op    : "equals",
+            expr1 : "from",
+            expr2 : wallet
+          })
+        });
+        var version_list = await req_tx_list.json();
+        // latest ask first
+        version_list.reverse();
+        
+        var router_version_display_value_list = [];
+        var version_display_value_list = [];
+        await Promise.all(version_list.map(async (txid)=>{
+          // unconfirmed_tx fallback ???
+          try {
+            var req_tx = await fetch(`${arweave_node}/tx/${txid}`);
+            var res_tx = await req_tx.json();
+          } catch (err) {
+            console.log("error during load tx ", txid, err);
+            return;
+          }
+          var tags_hash = {}
+          for(var tag of res_tx.tags) {
+            var name = base64url_decode(tag.name);
+            var value = base64url_decode(tag.value);
+            tags_hash[name] = value;
+          };
+          if (tags_hash["Content-Type"] !== "text/html") {
+            // DEBUG
+            console.log("ignored tx (not text/html)", txid, tags_hash);
+            return;
+          }
+          var pub_type = tags_hash["Pub-Type"];
+          if (pub_type !== "router" && pub_type !== "page") {
+            // DEBUG
+            console.log("ignored tx (bad Pub-Type)", txid, tags_hash);
+            return;
+          }
+          
+          var req_status = await fetch(`${arweave_node}/tx/${txid}/status`);
+          var res_status = await req_status.json();
+          var block_height = res_status.block_height;
+          
+          var version = {
+            txid: txid,
+            height: block_height
+          }
+          
+          switch(pub_type) {
+            case "router":
+              router_version_display_value_list.push(version);
+              break;
+            
+            case "page":
+              version_display_value_list.push(version);
+              break;
+          }
+          
+          // TODO fix
+          // var req2 = await fetch(`${arweave_node}/block/height/${block_height}/timestamp`);
+          var req_block = await fetch(`${arweave_node}/block/height/${block_height}`);
+          var res_block = await req_block.json();
+          version.timestamp = res_block.timestamp;
+        }));
+        version_display_value_list.sort((a,b)=>-(a.height-b.height));
+        router_version_display_value_list.sort((a,b)=>-(a.height-b.height));
+        // DEBUG
+        console.log("version_display_value_list", version_display_value_list);
+        console.log("router_version_display_value_list", router_version_display_value_list);
+        
+        document.getElementById("version_list").innerHTML = version_display_value_list.map((version)=>{
+          // TODO display version.timestamp LATER
+          return `<option value=${version.txid}>${version.height} ${new Date(version.timestamp*1000).toISOString()}</option>`
+        });
+        document.getElementById("router_version_list").innerHTML = router_version_display_value_list.map((version)=>{
+          return `<option value=${version.txid}>${version.height} ${new Date(version.timestamp*1000).toISOString()}</option>`
+        });
+      }
+      function gateway_select() {
+        var gateway = document.getElementById("gateway_list").value;
+        if (gateway === location.host) return;
+        location = gateway+location.pathname+location.search;
+      }
+      function version_select() {
+        var gateway = document.getElementById("gateway_list").value
+        var txid = document.getElementById("version_list").value
+        if (txid) {
+          document.getElementById("content").src = `${gateway}/${txid}`
+        } else {
+          document.getElementById("content").src = "data:text/html;charset=utf-8;,no available version";
+        }
+      }
+      function router_version_select() {
+        var gateway = document.getElementById("gateway_list").value
+        var txid = document.getElementById("router_version_list").value
+        if (txid) {
+          var new_href = "/"+txid;
+          if (location.href !== new_href) {
+            location.href = new_href;
+          }
+        }
+      }
+      window.open_in_new_tab = function() {
+        var gateway = document.getElementById("gateway_list").value
+        var txid = document.getElementById("version_list").value
+        open(`${gateway}/${txid}`);
+      };
+      
+      (async function(){
+        gateway_list_refresh();
+        await version_list_refresh();
+        version_select();
+      })();
+      document.getElementById("gateway_list").onchange = gateway_select;
+      document.getElementById("version_list").onchange = version_select;
+      document.getElementById("router_version_list").onchange = router_version_select;
+      document.getElementById("open_in_new_tab").onclick = open_in_new_tab;
+    </script>
+  </body>
+</html>
