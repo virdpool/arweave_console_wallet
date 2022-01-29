@@ -35,9 +35,7 @@ nodejs and yarn
     
     NOTE. No password protection of wallet. This is only for demo purposes for arweave.virdpool_testnet
 
-# Hackathon: Open Web Foundry notes
-
-## What is dynamic page on arweave
+# What is dynamic page on arweave
 
 Example https://arweave.net/7Z-dJ4c6WlyaVTb-1nRBo2mh8zUq9cUqaLDIoQaDu4U \
 So. You want publish your first permaweb page, you published some html, and after one day you realized that you need put some changes... in PERMAweb \
