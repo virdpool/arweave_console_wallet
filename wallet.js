@@ -119,6 +119,7 @@ Number.prototype.rjust = function(length, char) {
         quantity: arweave.ar.arToWinston(amount)
       }, key);
       await arweave.transactions.sign(transaction, key);
+      console.log("txid", transaction.id);
       var balance = await arweave.wallets.getBalance(address);
       var balance_bn = BigInt(balance);
       var spend_bn = BigInt(transaction.quantity) + BigInt(transaction.reward);
