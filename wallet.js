@@ -36,8 +36,8 @@ Number.prototype.rjust = function(length, char) {
         if (!network_host) {
           console.log("missing --network-host for unknown network");
         }
-        if (!network_post) {
-          console.log("missing --network-post for unknown network");
+        if (!network_port) {
+          console.log("missing --network-port for unknown network");
         }
         if (!network_protocol) {
           console.log("missing --network-protocol for unknown network");
